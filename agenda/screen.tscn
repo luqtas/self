@@ -1,0 +1,143 @@
+[gd_scene load_steps=5 format=3 uid="uid://ta61fakbgqps"]
+
+[ext_resource type="Script" uid="uid://b4jnqb17g1myw" path="res://screen.gd" id="1_vouji"]
+[ext_resource type="Theme" uid="uid://ceqg0y3wvxkk5" path="res://solarized_light.tres" id="2_7cosj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htcr4"]
+bg_color = Color(0.992157, 0.964706, 0.890196, 1)
+border_width_left = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.933333, 0.909804, 0.835294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ym1bn"]
+bg_color = Color(0.933333, 0.909804, 0.835294, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vouji")
+
+[node name="app" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7cosj")
+theme_override_styles/panel = SubResource("StyleBoxFlat_htcr4")
+
+[node name="info" type="Label" parent="app"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_7cosj")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_ym1bn")
+
+[node name="tasks" type="ItemList" parent="app/info"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 599.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+theme = ExtResource("2_7cosj")
+theme_override_constants/h_separation = 15
+item_count = 1
+item_0/text = "add"
+
+[node name="watch" type="Label" parent="app"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 28
+
+[node name="add_tasks" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -232.0
+offset_right = 356.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7cosj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="add_tasks"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="add_tasks/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="CheckBox" type="CheckBox" parent="add_tasks/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("2_7cosj")
+text = "breakable"
+
+[node name="ergonomics_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="rest_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="panels" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_7cosj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="panels"]
+layout_mode = 2
+theme = ExtResource("2_7cosj")
+
+[node name="time" type="Button" parent="panels/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7cosj")
+toggle_mode = true
+text = " TIME "
+
+[node name="tasks" type="Button" parent="panels/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7cosj")
+toggle_mode = true
+text = " TASKS "
+
+[node name="todo" type="Button" parent="panels/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7cosj")
+toggle_mode = true
+text = " TODO "
+
+[connection signal="focus_entered" from="app/info/tasks" to="." method="_on_tasks_focus_entered"]
+[connection signal="gui_input" from="app/info/tasks" to="." method="_on_tasks_gui_input"]
+[connection signal="item_activated" from="app/info/tasks" to="." method="_on_tasks_item_activated"]
+[connection signal="item_clicked" from="app/info/tasks" to="." method="_on_item_list_item_clicked"]
+[connection signal="item_selected" from="app/info/tasks" to="." method="_on_tasks_item_selected"]
+[connection signal="gui_input" from="add_tasks/VBoxContainer/LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_submitted" from="add_tasks/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="gui_input" from="add_tasks/VBoxContainer/CheckBox" to="." method="_on_check_box_gui_input"]
+[connection signal="timeout" from="ergonomics_timer" to="." method="ergonomics"]
+[connection signal="pressed" from="panels/HBoxContainer/time" to="." method="_on_time_pressed"]
+[connection signal="pressed" from="panels/HBoxContainer/tasks" to="." method="_on_tasks_pressed"]
+[connection signal="pressed" from="panels/HBoxContainer/todo" to="." method="_on_todo_pressed"]

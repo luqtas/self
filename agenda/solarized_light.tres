@@ -1,0 +1,90 @@
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://ceqg0y3wvxkk5"]
+
+[ext_resource type="Texture2D" uid="uid://fh8x46gy6sk1" path="res://checkbox_checked.png" id="1_e87ki"]
+[ext_resource type="Texture2D" uid="uid://7qrjvedeifw8" path="res://checkbox_empty.png" id="2_u8fxg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlvq1"]
+bg_color = Color(0.933333, 0.909804, 0.835294, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tlvq1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5len4"]
+bg_color = Color(0.933333, 0.909804, 0.835294, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u8fxg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x1o1a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o7m2t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mdgt1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_re5p4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e87ki"]
+bg_color = Color(0.933333, 0.909804, 0.835294, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5len4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re5p4"]
+bg_color = Color(0.933333, 0.909804, 0.835294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pahp"]
+bg_color = Color(0.992157, 0.964706, 0.890196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8fxg"]
+bg_color = Color(0.933333, 0.909804, 0.835294, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e87ki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1pahp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_raply"]
+content_margin_left = 15.0
+bg_color = Color(0.992157, 0.964706, 0.890196, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.933333, 0.909804, 0.835294, 1)
+
+[resource]
+Button/colors/font_color = Color(0.396078, 0.482353, 0.513726, 1)
+Button/colors/font_focus_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/colors/font_hover_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/colors/font_hover_pressed_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/colors/font_pressed_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_tlvq1")
+Button/styles/normal = SubResource("StyleBoxEmpty_tlvq1")
+Button/styles/pressed = SubResource("StyleBoxFlat_5len4")
+CheckBox/colors/font_color = Color(0.396078, 0.482353, 0.513726, 1)
+CheckBox/colors/font_focus_color = Color(0.345098, 0.431373, 0.458824, 1)
+CheckBox/colors/font_hover_color = Color(0.345098, 0.431373, 0.458824, 1)
+CheckBox/colors/font_hover_pressed_color = Color(0.345098, 0.431373, 0.458824, 1)
+CheckBox/colors/font_pressed_color = Color(0.396078, 0.482353, 0.513726, 1)
+CheckBox/constants/check_v_offset = 4
+CheckBox/icons/checked = ExtResource("1_e87ki")
+CheckBox/icons/unchecked = ExtResource("2_u8fxg")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_u8fxg")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_x1o1a")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_o7m2t")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_mdgt1")
+ItemList/colors/font_color = Color(0.396078, 0.482353, 0.513726, 1)
+ItemList/colors/font_hovered_color = Color(0.345098, 0.431373, 0.458824, 1)
+ItemList/colors/font_hovered_selected_color = Color(0.345098, 0.431373, 0.458824, 1)
+ItemList/colors/font_selected_color = Color(0.345098, 0.431373, 0.458824, 1)
+ItemList/colors/guide_color = Color(0, 0, 0, 0)
+ItemList/styles/focus = SubResource("StyleBoxEmpty_re5p4")
+ItemList/styles/hovered = SubResource("StyleBoxFlat_e87ki")
+ItemList/styles/hovered_selected = SubResource("StyleBoxEmpty_5len4")
+ItemList/styles/hovered_selected_focus = SubResource("StyleBoxFlat_re5p4")
+ItemList/styles/panel = SubResource("StyleBoxFlat_1pahp")
+ItemList/styles/selected_focus = SubResource("StyleBoxFlat_u8fxg")
+Label/colors/font_color = Color(0.396078, 0.482353, 0.513726, 1)
+LineEdit/colors/caret_color = Color(0.94902, 0.94902, 0.94902, 0)
+LineEdit/colors/font_color = Color(0.396078, 0.482353, 0.513726, 1)
+LineEdit/colors/font_selected_color = Color(0.345098, 0.431373, 0.458824, 1)
+LineEdit/colors/selection_color = Color(0.933333, 0.909804, 0.835294, 1)
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_e87ki")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_1pahp")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_raply")

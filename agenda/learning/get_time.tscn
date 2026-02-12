@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmc7kxyyd0lqk"]
+
+[ext_resource type="Script" uid="uid://cywyy2stmvsyy" path="res://learning/get_time.gd" id="1_jsxmh"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jsxmh")

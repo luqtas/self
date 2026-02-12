@@ -1,0 +1,27 @@
+TODO
+ 1. integrate the python logic into a Godot project
+ 2. create an interactive pizza graph to schedule events!
+    · how it's done? do we separate year and day? or do we start 1° with the year, then after setting it we increase the precision by showing the graph with day? considering that each percent of a year has ~ 3 days!
+ 3. would suggest an abstraction to turn a standard date into clock's abstraction! it could be about running the script with arguments... how it's implemented into app's UI?
+
+guess we can delete './clock prototype.py'?
+
+maybe we can turn this into the "self" application?
+
+https://www.youtube.com/watch?v=4SIdbXP3JNA&list=RDQMGY-A-BVSsak&start_radio=1
+https://stackoverflow.com/questions/415511/how-do-i-get-the-current-time-in-python
+https://stackoverflow.com/questions/61810757/find-total-number-of-days-in-a-year-pandas
+https://stackoverflow.com/questions/5294314/python-get-number-of-years-that-have-passed-from-date-string
+https://prettyprogress.app/tools/percentage-year-calculator
+https://www.google.com/search?client=firefox-b-d&q=python+timedate+when+the+day+starts%3F
+https://www.google.com/search?client=firefox-b-d&q=strptime+get+00%3A00
+https://www.google.com/search?client=firefox-b-d&q=get+the+day+month+and+year+of+time.now%28%29+python
+https://stackoverflow.com/questions/45986035/seconds-until-end-of-day-in-python
+https://www.youtube.com/watch?v=IBndytMUV34
+
+for setting the timezone in Arch Linux,
+https://wiki.archlinux.org/title/NetworkManager#Automatically_set_the_timezone
+
+for setting "Action Buttons" title,
+xfconf-query -c xfce4-panel -p /plugins/plugin-10/custom-title -s "   $(/bin/python /home/luqtas/Desktop/projects/clock/clock.py)   "
+which offers an advantage of also offering a dual function (sleep, shutdown etc.)
