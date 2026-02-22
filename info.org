@@ -8,7 +8,6 @@ guess we can delete './clock prototype.py'?
 
 maybe we can turn this into the "self" application?
 
-https://www.youtube.com/watch?v=4SIdbXP3JNA&list=RDQMGY-A-BVSsak&start_radio=1
 https://stackoverflow.com/questions/415511/how-do-i-get-the-current-time-in-python
 https://stackoverflow.com/questions/61810757/find-total-number-of-days-in-a-year-pandas
 https://stackoverflow.com/questions/5294314/python-get-number-of-years-that-have-passed-from-date-string
@@ -17,7 +16,6 @@ https://www.google.com/search?client=firefox-b-d&q=python+timedate+when+the+day+
 https://www.google.com/search?client=firefox-b-d&q=strptime+get+00%3A00
 https://www.google.com/search?client=firefox-b-d&q=get+the+day+month+and+year+of+time.now%28%29+python
 https://stackoverflow.com/questions/45986035/seconds-until-end-of-day-in-python
-https://www.youtube.com/watch?v=IBndytMUV34
 
 for setting the timezone in Arch Linux,
 https://wiki.archlinux.org/title/NetworkManager#Automatically_set_the_timezone
