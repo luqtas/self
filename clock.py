@@ -46,9 +46,11 @@ def clock():
     b = a - x
     c = 100 - ((b.seconds * 100) / (zzz * 60 * 60))
     o = (x - a).days
-    
-    if o > -1: # logic for going past 100%, based on how much days passed from woke time
-        c = c + ((o + 1) * 100)
+    if o > 0: # logic for going past 100%, based on how much days passed from woke time
+        c = c + ((o) * 100)
+    # but what if we show "f" (% of the day) past 100%?
+     #    · we have some timeframe for the 💤 unicode indicating sleep time,
+      #      then we after a while we show UTC time %
     
     if len(arg) >= 2:
         if arg[1] == "0":
@@ -81,12 +83,15 @@ def clock():
 clock()
 
 # TODO
-# icons for indicating stuff to do... ideally this routine is organized based on user marking if they did or not?
- # how about an "register phase" where the app takes into consideration user's activity registers to set a routine?
-    # ☀ (day)
-    # 🌙 (night)
-    # 💤 (sleep)
-    # 🔧 (work)
-    # 🍴 (eat)
-    # 🏋️ (exercise)
-    # 📎 (hobby)
+        # icons for indicating stuff to do... ideally this routine is organized based on user marking if they did or not?
+        # how about an "register phase" where the app takes into consideration user's activity registers to set a routine?
+                # ☀ (day)
+                # 🌙 (night)
+                # 💤 (sleep)
+                # 🔧 (work)
+                # 🍴 (eat)
+                # 🏋️ (exercise)
+                # 📎 (hobby)
+        # a toggle button for showing UTC day % and the woke % abstraction!
+        # based on scientific research, should we still keep counting incrementally when indicating an event? or do we allow deadlines
+         # to be an exception on count-down?

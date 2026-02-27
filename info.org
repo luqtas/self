@@ -23,3 +23,15 @@ https://wiki.archlinux.org/title/NetworkManager#Automatically_set_the_timezone
 for setting "Action Buttons" title,
 xfconf-query -c xfce4-panel -p /plugins/plugin-10/custom-title -s "   $(/bin/python /home/luqtas/Desktop/projects/clock/clock.py)   "
 which offers an advantage of also offering a dual function (sleep, shutdown etc.)
+
+re-read;
+https://pmc.ncbi.nlm.nih.gov/articles/PMC4814468/
+https://www.nature.com/articles/s41598-024-62189-7
+https://www.cambridge.org/core/books/abs/cambridge-handbook-of-cognitive-aging/time-perception-from-seconds-to-lifetimes-how-perceived-time-affects-adult-development/51D8A387BE1D476D463EF56B64EE9E70
+https://www.news-medical.net/news/20240719/UNLV-study-examines-brain-activity-and-time-perception-over-minutes-and-hours.aspx
+https://pmc.ncbi.nlm.nih.gov/articles/PMC9630250/
+https://www.sciencedirect.com/topics/psychology/time-perception
+https://www.psypost.org/scientists-uncover-a-fundamental-aspect-of-time-perception/
+https://pmc.ncbi.nlm.nih.gov/articles/PMC2866156/
+https://contemplationstation.substack.com/p/how-to-expand-time-the-neuroscience
+https://dl.acm.org/doi/10.1145/3613904.3641942
