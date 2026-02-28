@@ -1,7 +1,8 @@
-import re, sys
+import re, sys, os, os.path
 
 tags = []
 tsearch = []
+logs = '/home/luqtas/logs/'
 
 if __name__ == "__main__":
     lenght = len(sys.argv) - 1
@@ -9,11 +10,14 @@ if __name__ == "__main__":
         o = o + 1
         tsearch.append(str(sys.argv[o]))
 
-# needs to run through all MD files we have in /logs...
-with open('/home/luqtas/Desktop/logs/330.md', 'r') as file:
-    data = file.read()
+data = ""
+amnt = [s for s in os.listdir(logs) if s.endswith('.org')]
+for db in range(len(amnt)):
+    with open('%s%s' % (logs, amnt[db]), 'r') as file:
+        org = file.read()
+        data += org
 
-def processor(result, db):
+def processor(db):
     result = re.findall(r"\[(.*?)\]", db)
     # then we go looping through the array to find for "," and make it unique items
     for n in range(len(result)):
@@ -29,12 +33,11 @@ def processor(result, db):
     result = list(set(result)) # remove duplicates
     return result
 
-tags = processor(tags, data)
+tags = processor(data)
 
 search = set()
 for p in re.split(r'(?:\r\n?|\n){2,}', data): # https://stackoverflow.com/questions/66917980/only-scrape-paragraphs-containing-certain-words
-    z = []
-    z = processor(z, p)
+    z = processor(p)
     if set(tsearch).issubset(z): # https://www.geeksforgeeks.org/python/python-check-if-the-list-contains-elements-of-another-list/
         search.add(p)
     #if all(x in tsearch for x in z): # TODO in case we want to search paragraphs that only contain the desired tag(s)
