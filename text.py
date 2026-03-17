@@ -19,8 +19,7 @@ for db in range(len(amnt)):
 
 def processor(db):
     result = re.findall(r"\[(.*?)\]", db)
-    # then we go looping through the array to find for "," and make it unique items
-    for n in range(len(result)):
+    for n in range(len(result)): # then we go looping through the array to find for "," and make it unique items
         if n == 0:
             xxx = (str(result[0]))
             continue

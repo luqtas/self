@@ -12,9 +12,14 @@ if __name__ == "__main__":
         arg.append(sys.argv[o])
 
 def clock():
-    year = datetime.now().year
+
+    #x = datetime.utcnow() # will be deprecated
+    # VS.
+    x = datetime.now(timezone.utc)
+    x = x.replace(tzinfo=None)
+
+    year = x.year
     o = datetime.strptime(('01.01.%s' % year),'%d.%m.%Y')
-    x = datetime.now()
 
     # how much % of the year has passed
     y = ((x - o).days * 100) / (365 + calendar.isleap(year))
@@ -35,8 +40,11 @@ def clock():
     f = 100 - ((e.seconds * 100) / 86400)
 
     # how much % passed from the day based on user's waking time
-    with open('/home/%s/Desktop/cloud/self/woke.pkl' % (username), 'rb') as f:
+
+    with open('/home/%s/Desktop/cloud/system/woke.pkl' % (username), 'rb') as f:
         woke = pickle.load(f)
+    #woke = datetime.now()
+
     zzz = 8 # how much hours do you sleep?
     zzz = 24 - zzz
     if x.hour >= woke.hour:
@@ -46,11 +54,14 @@ def clock():
     b = a - x
     c = 100 - ((b.seconds * 100) / (zzz * 60 * 60))
     o = (x - a).days
-    if o > 0: # logic for going past 100%, based on how much days passed from woke time
-        c = c + ((o) * 100)
+
+    if o >= 0: # logic for going past 100%, based on how much days passed from woke time
+        c = c + ((o + 1) * 100)
     # but what if we show "f" (% of the day) past 100%?
      #    · we have some timeframe for the 💤 unicode indicating sleep time,
       #      then we after a while we show UTC time %
+
+    c1 = c # the above block will transform C either in a string or an integer, bugging # getting the time # section!
     
     if len(arg) >= 2:
         if arg[1] == "0":
@@ -61,9 +72,9 @@ def clock():
     # how old are you sweetheart?
     age = year - birthday
     
-    # getting the time
+    # getting the time #
     if arg[0] == "1":
-        if c >= 10001:
+        if c1 >= 10001:
             print("    💤    ")
         else:
             print(str(str(c) + "  " + str(z) + "  " + str(age)))
@@ -71,18 +82,19 @@ def clock():
     # opening the log document based on year% + age
     elif arg[0] == "2":
         if arg[1] == "1": # ~/logs
-            action = "/home/luqtas/logs/" + str(z) + "-" + str(age) + ".org"
-            subprocess.Popen(["/usr/local/bin/run-or-raise 'emacsclient %s' 'emacsclient %s'" % (action, action)], shell=True)
+            action = "/home/luqtas/Desktop/logs/" + str(z) + "-" + str(age) + ".md"
+            subprocess.Popen(["kate %s" % (action)], shell=True)
         elif arg[1] == "2": # qob
-            action = "/home/luqtas/Desktop/qob/Emacs/logs/" + str(z) + "-" + str(age) + ".org"
-            subprocess.Popen(["/usr/local/bin/run-or-raise 'emacsclient %s' 'emacsclient %s'" % (action, action)], shell=True)
+            action = "/home/luqtas/Desktop/projects/qob/logs/" + str(z) + "-" + str(age) + ".md"
+            subprocess.Popen(["kate %s" % (action)], shell=True)
         elif arg[1] == "3": # silver-ball
-            action = "/home/luqtas/Desktop/projects/silver-ball/logs/" + str(z) + "-" + str(age) + ".org"
-            subprocess.Popen(["/usr/local/bin/run-or-raise 'emacsclient %s' 'emacsclient %s'" % (action, action)], shell=True)
+            action = "/home/luqtas/Desktop/projects/silver-ball/logs/" + str(z) + "-" + str(age) + ".md"
+            subprocess.Popen(["kate %s" % (action)], shell=True)
 
 clock()
 
-# TODO
+    # TODO
+        # we should get datetime.now() as UTC!
         # icons for indicating stuff to do... ideally this routine is organized based on user marking if they did or not?
         # how about an "register phase" where the app takes into consideration user's activity registers to set a routine?
                 # ☀ (day)
