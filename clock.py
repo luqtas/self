@@ -55,8 +55,8 @@ def clock():
     c = 100 - ((b.seconds * 100) / (zzz * 60 * 60))
     o = (x - a).days
 
-    if o >= 0: # logic for going past 100%, based on how much days passed from woke time
-        c = c + ((o + 1) * 100)
+    if o > 0: # logic for going past 100%, based on how much days passed from woke time
+        c = c + (o * 100)
     # but what if we show "f" (% of the day) past 100%?
      #    · we have some timeframe for the 💤 unicode indicating sleep time,
       #      then we after a while we show UTC time %
