@@ -47,10 +47,13 @@ def clock():
 
     zzz = 8 # how much hours do you sleep?
     zzz = 24 - zzz
-    if x.hour >= woke.hour:
-        a = woke + timedelta(hours=zzz)
-    else:
-        a = woke - timedelta(hours=zzz)
+
+    #if x.hour >= woke.hour:
+    #    a = woke + timedelta(hours=zzz)
+    #else:
+    #    a = woke - timedelta(hours=zzz)
+    a = woke - timedelta(hours=zzz)
+
     b = a - x
     c = 100 - ((b.seconds * 100) / (zzz * 60 * 60))
     o = (x - a).days
