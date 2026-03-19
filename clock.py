@@ -48,11 +48,15 @@ def clock():
     zzz = 8 # how much hours do you sleep?
     zzz = 24 - zzz
 
-    #if x.hour >= woke.hour:
-    #    a = woke + timedelta(hours=zzz)
-    #else:
-    #    a = woke - timedelta(hours=zzz)
-    a = woke - timedelta(hours=zzz)
+    o = (x - woke).days
+
+    if x.hour >= woke.hour:
+        if o > 0:
+            a = woke - timedelta(hours=zzz)
+        else:
+            a = woke + timedelta(hours=zzz)
+    else:
+        a = woke - timedelta(hours=zzz)
 
     b = a - x
     c = 100 - ((b.seconds * 100) / (zzz * 60 * 60))
@@ -60,6 +64,7 @@ def clock():
 
     if o > 0: # logic for going past 100%, based on how much days passed from woke time
         c = c + (o * 100)
+
     # but what if we show "f" (% of the day) past 100%?
      #    · we have some timeframe for the 💤 unicode indicating sleep time,
       #      then we after a while we show UTC time %
