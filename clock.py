@@ -50,17 +50,16 @@ def clock():
 
     o = (x - woke).days
 
-    if x.hour >= woke.hour:
-        if o > 0:
-            a = woke - timedelta(hours=zzz)
-        else:
-            a = woke + timedelta(hours=zzz)
+    #if x.hour >= woke.hour:
+    if o > 0:
+        a = woke + timedelta(hours=zzz)
     else:
         a = woke - timedelta(hours=zzz)
 
     b = a - x
     c = 100 - ((b.seconds * 100) / (zzz * 60 * 60))
-    o = (x - a).days
+
+    #o = (x - a).days
 
     if o > 0: # logic for going past 100%, based on how much days passed from woke time
         c = c + (o * 100)
