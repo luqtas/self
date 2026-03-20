@@ -51,7 +51,7 @@ def clock():
     o = (x - woke).days
 
     #if x.hour >= woke.hour:
-    if o > 0:
+    if o > 0: # or x.hour <= woke.hour:?
         a = woke + timedelta(hours=zzz)
     else:
         a = woke - timedelta(hours=zzz)
