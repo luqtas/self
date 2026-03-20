@@ -51,10 +51,13 @@ def clock():
     o = (x - woke).days
 
     #if x.hour >= woke.hour:
-    if o > 0: # or x.hour <= woke.hour:?
+    if o > 0:# or x.hour <= woke.hour:
         a = woke + timedelta(hours=zzz)
     else:
-        a = woke - timedelta(hours=zzz)
+        if x.hour >= woke.hour:
+            a = woke + timedelta(hours=zzz)
+        else:
+            a = woke - timedelta(hours=zzz)
 
     b = a - x
     c = 100 - ((b.seconds * 100) / (zzz * 60 * 60))
