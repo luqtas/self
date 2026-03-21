@@ -1,4 +1,17 @@
-import subprocess, time, io
+import subprocess, time, io, sys
+
+arg = []
+if __name__ == "__main__":
+    lenght = len(sys.argv) - 1
+    for o in range(lenght):
+        o = o + 1
+        arg.append(sys.argv[o])
+# then use like this,
+    #if len(arg) >= 2:
+    #        if arg[1] == "0":
+    #            c = int(c)
+    #        elif arg[1] == "1":
+    #            c = f"{c:.3f}"
 
 start = None
 end = None
@@ -12,7 +25,10 @@ def track(app):
 
     if last_app_lock:
         end = clock
-        print('%.3f'%(end - start), "in", tracked)
+
+        time = round((end - start), 3) # FINALLY SOME TELEMETRY!
+        print(time, "in", tracked)
+
     else:
         start = clock
 
@@ -39,4 +55,4 @@ while True:
         last_app_lock = True
         track(app)
 
-    time.sleep(1.25)
+    time.sleep(1.425)

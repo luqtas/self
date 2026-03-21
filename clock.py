@@ -35,12 +35,11 @@ def clock():
     #print(e)
 
     # how much % passed from the day
-    d = x + timedelta(days=1)
-    e = datetime.combine(d, time.min) - x
-    f = 100 - ((e.seconds * 100) / 86400)
+    day = x + timedelta(days=1)
+    day = datetime.combine(day, time.min) - x
+    day = 100 - ((day.seconds * 100) / 86400)
 
     # how much % passed from the day based on user's waking time
-
     with open('/home/%s/Desktop/cloud/system/woke.pkl' % (username), 'rb') as f:
         woke = pickle.load(f)
     #woke = datetime.now()
@@ -54,15 +53,21 @@ def clock():
     if o > 0:# or x.hour <= woke.hour:
         a = woke + timedelta(hours=zzz)
     else:
-        if x.hour >= woke.hour:
-            a = woke - timedelta(hours=zzz)
-        else:
-            a = woke + timedelta(hours=zzz)
+        a = woke - timedelta(hours=zzz)
 
     b = a - x
+
+        # i guess if it bugs once again, we'll need the "day" variable to support the logic?
+        #if x.hour >= woke.hour:
+         #   a = woke - timedelta(hours=zzz)
+          #  b = a - x
+        #else:
+         #   a = woke + timedelta(hours=zzz)
+          #  b = x - a
+
     c = 100 - ((b.seconds * 100) / (zzz * 60 * 60))
 
-    #o = (x - a).days
+    o = (x - a).days
 
     if o > 0: # logic for going past 100%, based on how much days passed from woke time
         c = c + (o * 100)
