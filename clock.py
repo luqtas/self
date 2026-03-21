@@ -42,41 +42,12 @@ def clock():
     # how much % passed from the day based on user's waking time
     with open('/home/%s/Desktop/cloud/system/woke.pkl' % (username), 'rb') as f:
         woke = pickle.load(f)
-    #woke = datetime.now()
 
     zzz = 8 # how much hours do you sleep?
     zzz = 24 - zzz
 
-    o = (x - woke).days
-
-    #if x.hour >= woke.hour:
-    if o > 0:# or x.hour <= woke.hour:
-        a = woke + timedelta(hours=zzz)
-    else:
-        a = woke - timedelta(hours=zzz)
-
-    b = a - x
-
-        # i guess if it bugs once again, we'll need the "day" variable to support the logic?
-        #if x.hour >= woke.hour:
-         #   a = woke - timedelta(hours=zzz)
-          #  b = a - x
-        #else:
-         #   a = woke + timedelta(hours=zzz)
-          #  b = x - a
-
-    c = 100 - ((b.seconds * 100) / (zzz * 60 * 60))
-
-    o = (x - a).days
-
-    if o > 0: # logic for going past 100%, based on how much days passed from woke time
-        c = c + (o * 100)
-
-    # but what if we show "f" (% of the day) past 100%?
-     #    · we have some timeframe for the 💤 unicode indicating sleep time,
-      #      then we after a while we show UTC time %
-
-    c1 = c # the above block will transform C either in a string or an integer, bugging # getting the time # section!
+    a = (x - woke).seconds
+    c = a * 100 / (zzz * 60 * 60)
     
     if len(arg) >= 2:
         if arg[1] == "0":
@@ -89,7 +60,7 @@ def clock():
     
     # getting the time #
     if arg[0] == "1":
-        if c1 >= 10001:
+        if c >= 100:
             print("    💤    ")
         else:
             print(str(str(c) + "  " + str(z) + "  " + str(age)))
