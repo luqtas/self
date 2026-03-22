@@ -42,13 +42,15 @@ def clock():
     # how much % passed from the day based on user's waking time
     with open('/home/%s/Desktop/cloud/system/woke.pkl' % (username), 'rb') as f:
         woke = pickle.load(f)
-
     zzz = 8 # how much hours do you sleep?
     zzz = 24 - zzz
-
     a = (x - woke).seconds
     c = a * 100 / (zzz * 60 * 60)
-    
+    cdays = (x - woke).days # if more than 1 day has passed
+    if cdays > 0:
+        c = c + (cdays * 100)
+
+
     if len(arg) >= 2:
         if arg[1] == "0":
             c = int(c)
